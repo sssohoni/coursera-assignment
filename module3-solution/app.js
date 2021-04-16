@@ -24,7 +24,7 @@ function FoundItems() {
 
 function FoundItemsDirectiveController(){
     var narrowIt = this;
-    narrowIt.IsEmptyItems = function(){
+    narrowIt.isEmptyItems = function(){
       if (narrowIt.items != undefined && narrowIt.items.length === 0){
         return true;
       }
@@ -53,21 +53,22 @@ MenuSearchService.$inject = ['$http', 'ApiBasePath'];
   
 function MenuSearchService($http, ApiBasePath) {
   var service = this;
-  service.getMatchedMenuItems = function (searchTerm) {
-
-  return $http({
-        method: "GET",
+  service.getMatchedMenuItems = function(searchTerm) {
+     return $http({
+        method: 'GET',
         url: (ApiBasePath + '/menu_items.json')
       }).then(function success(result){
         var foundItems = [];
-        if(searchTerm !== undefined && searchTerm.length > 0){       
-        for (var i = 0; i < result.data.menu_items.length; i++) {
-          var description = result.data.menu_items[i].description;
+        if(searchTerm !== undefined && searchTerm.length > 0){   
+          searchTerm = searchTerm.toLowerCase();
+          for (var i = 0; i < result.data.menu_items.length; i++) {
+          var menu_itme =  result.data.menu_items[i];
+          var description = menu_item.description.toLowerCase();
           if (description.indexOf(searchTerm) !== -1){
-            foundItems.push(result.data.menu_items[i]);
+            foundItems.push(menu_item);
           }
         }
-        }
+      }
       return foundItems;
     }, function error(response){
           throw new Error("Error");
