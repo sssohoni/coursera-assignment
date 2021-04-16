@@ -56,8 +56,8 @@ function MenuSearchService($http, ApiBasePath) {
 
   return $http({
         method: "GET",
-        url: (ApiBasePath + "/menu_items.json")
-      }).then (function (result){
+        url: (ApiBasePath + '/menu_items.json')
+      }).then (function success(result){
         var foundItems = [];
         if(searchTerm !== undefined && searchTerm.length > 0){
           searchTerm = searchTerm.toLowerCase();
