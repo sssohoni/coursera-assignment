@@ -58,7 +58,7 @@ function MenuSearchService($http, ApiBasePath) {
   return $http({
         method: "GET",
         url: (ApiBasePath + '/menu_items.json')
-      }).then (function success(result){
+      }).then(function success(result){
         var foundItems = [];
         if(searchTerm !== undefined && searchTerm.length > 0){       
         for (var i = 0; i < result.data.menu_items.length; i++) {
