@@ -1,30 +1,45 @@
 <!DOCTYPE html>
-<html ng-app='MenuApp'>
-  <head>
+<html lang="en" ng-app="MenuApp">
+
+<head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Welcome to our Restaurant</title>
-  </head>
-  <body>
-    <div class="Container">
-      
-    <h1>Welcome to our Restaurant</h1>
+    <title>Restaurant Menu App</title>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
 
-    <div class="tabs">
-      <a ui-sref="tab1" ui-sref-active="activeTab">Tab 1</a>
-      <a ui-sref="tab2" ui-sref-active="activeTab">Tab 2</a>
-      <!-- <button ui-sref="tab2">Tab 2</button> -->
+<body>
+    <div class="container">
+        <h2>Restaurant Menu App</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <ui-view autoscroll='true'></ui-view>
+            </div>
+        </div>
+        <loader></loader>
     </div>
-
-    <ui-view></ui-view>
 
     <!-- Libraries -->
     <script src="lib/angular.min.js"></script>
     <script src="lib/angular-ui-router.min.js"></script>
 
     <!-- Modules -->
-    <script src="src/app.js"></script>
+    <script src="src/menuapp.module.js"></script>
+    <script src="src/data.module.js"></script>
+    <script src="src/loader.module.js"></script>
 
-  </body>
+    <!-- Routes -->
+    <script src="src/routes.js"></script>
+
+    <!-- source files -->
+    <script src="src/categories.component.js"></script>
+    <script src="src/main-categories.controller.js"></script>
+    <script src="src/items.component.js"></script>
+    <script src="src/main-items.controller.js"></script>
+    <script src="src/menudata.service.js"></script>
+    <script src="src/loader.component.js"></script>
+
+
+</body>
+
 </html>
-
