@@ -1,0 +1,24 @@
+<div class="container">
+  <form name="frmUser" class="form-signup" novalidate>
+    <h2 class="form-signup-heading"><span class="glyphicon glyphicon-user"></span> Sign Up</h2>
+    <label>First Name</label>
+      <input type="text" name="firstName" ng-model="signUpCtrl.user.firstName"  class="form-control" placeholder="First Name" required>
+      <span class="error" ng-if="frmUser.firstName.error.required && frmUser.firstName.$touched">First Name is required field!</span>
+    <label>Last Name</label>
+      <input type="text" name="lastName" ng-model="signUpCtrl.user.lastName"  class="form-control" placeholder="Last Name" required>
+      <span class="error" ng-if="frmUser.firstName.error.required && frmUser.firstName.$touched">First Name is required field!</span>
+    <label>Email</label>
+      <input type="text" name="email" ng-model="signUpCtrl.user.email"  class="form-control" placeholder="Email Address" required>
+      <span class="error" ng-if="frmUser.email.error.$invalid && frmUser.email.$touched">Please enter valid email address!</span>
+    <label>Phone</label>
+      <input type="text" name="phone" ng-model="signUpCtrl.user.phone"  class="form-control" placeholder="Phone #" required>
+      <span class="error" ng-if="frmUser.phone.error.$invalid && frmUser.phone.$touched">Please enter valid Phone#!</span>
+    <label>Favorite Dish</label>
+      <input type="text" name="shortName" ng-model="signUpCtrl.user.favoriteMenu" class="form-control" placeholder="short Name">
+      <span class="error" ng-if="signUpCtrl.error">No such menu number exists</span>
+      <button ng-disabled="frmUser.$invalid" type="submit" class="btn btn-success" ng-click="signUpCtrl.processForm(true)">Sign Up</button>
+  </form
+  <div ng-if="signUpCtrl.completed" class="col-md-5 col-centered alert alert-success alert-dismissible" role="alert">
+      Your information has been saved
+  </div>
+</div>
